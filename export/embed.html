@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+        <meta charset="utf-8">
+        <title>Make your own active map</title>
+       
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="assets/css/style.min.css">
+        <link rel="stylesheet" href="assets/css/ui-lightness/jquery-ui-1.9.1.custom.css">
+    </head>
+    <body class="embed">
+        <div class="wrapper blue">
+
+            <header id="map-header">
+
+                <div class="live-view hidden2" id="editable-header">
+
+                        <aside id="explanation">
+                            <h2 id="map-title" class="ttl">&nbsp;</h2>
+                            <p id="map-instructions"></p>
+                        </aside>
+                        <div id="map-logo">&nbsp;</div>
+                    <div class="clear-both">&nbsp;</div>
+                </div>
+
+                <nav id="map-function">
+                    <ul id="filter-list">
+                        <li><a href="#" id="find-me">Find my location</a>&nbsp;</li>
+                        <!-- <li>
+                            <a href="#" id="guardian-tips" data-marker-author="topoftheshops">Guardian tips</a>
+                        </li> -->
+                        <li id="search-cont-li">
+                            <form id="search-form" action="./index.html">
+                                <input type="text" id="search-box" value="Search keywords or location" />
+                                <a href="#" class="search-btn hide-text" id="search-map">Go</a>
+                            </form>
+                        </li>
+                        <li class="end"><a href="#" id="reset-map">Reset</a></li>
+                    </ul>
+                    <div id="date-picker"></div>
+                </nav>
+            </header>
+            
+            <div class="map-cont section">
+                <!--[if IE 7]>
+                    <div id="map">
+                        &nbsp;
+                    </div>
+                <![endif]-->
+                <!--[if gt IE 7]><!--> 
+                    <div id="map" class="opacity0">
+                        &nbsp;
+                    </div>
+                <!--<![endif]-->
+            </div>
+
+            <div class="wrapper600 live-view hidden2" id="editable-widgets">
+
+                <div class="half-size-div" id="most-popular-box">
+                    <h2 id="most-popular-gig-title">Most Popular</h2>
+
+                    <div class="hs-l-col">
+                        <a id="ppopular-gig-report-image" href="#" class="open-single" data-marker-id="">&nbsp;</a>
+                    </div>
+
+                    <div class="hs-r-col">
+                        <p class="venue-ttl wrap" id="popular-gig-report-content"></p>   
+                    </div>
+
+                    <div class="clear-both">&nbsp;</div>
+
+                    <div>
+                        <p class="meta-loc-icon">
+                            <span id="popular-gig-report-location"></span><br/><span id="popular-gig-report-date"></span>
+                        </p>
+                        <p class="meta" id="popular-gig-report-num-reviews">
+                            <span id="popular-gig-report-num">0</span> Reports
+                            <a id="popular-gig-view-all-reviews-link" href="#" class="open-list" data-marker-id="">View all</a>
+                        </p>
+                    </div>
+
+                    <div class="clear-both">&nbsp;</div>
+                </div>
+
+                <div class="half-size-div end" id="featured-reporter-box">
+                    <h2>Latest reports</h2>
+                    <ul class="profile-latest-revs" id="featured-reporter-latest-images"></ul>
+                </div>
+
+                <div class="clear-both">&nbsp;</div>
+
+            </div>
+
+            <footer id="map-footer" class="">
+                <ul class="footer-list live-view hidden3" id="editable-footer">
+                    <li class="edit-social-link">
+                        <a href="" id="foot-tw-icon" class="hide-text" target="_blank">twitter</a>
+                    </li>
+                    <li class="edit-social-link">
+                        <a href="" id="foot-fb-icon" class="hide-text" target="_blank">facebook</a>
+                    </li>
+                    <li class="edit-social-link">
+                        <a href="" id="foot-gp-icon" class="hide-text" target="_blank">google plus</a>
+                    </li>
+                </ul>
+
+                <a id="powered-by-notice" href="http://n0tice.com/" target="_blank">
+                    <img src="assets/img/poweredby-n0tice.gif" alt="powered by notice">
+                </a>
+
+                <div class="clear-both">&nbsp;</div>
+            </footer> 
+        </div>
+
+
+
+        <div id="no-js-warning">
+            <h1 id="logo" class="hide-text">#LocalShopping</h1>
+            <div class="clear-both">&nbsp;</div>
+            <h2 class="ttl">#LocalShopping Requires Javascript</h2>    
+            <p>You are viewing this notive because it appears you have JavaScript disabled. #LocalShopping requires javascript to work. If you wish to use the application you must enable Javascript in your browser of upgrade to a browser that supports Javascript.</p>
+        </div>
+
+        <script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?sensor=false"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="assets/js/jquery-1.8.2.js"><\/script>')</script>
+        <script src="assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="assets/js/plugins.js"></script>
+        <script src="assets/js/jquery.zclip.min.js"></script>
+        <script src="assets/js/jquery.backgroundSize.js"></script>
+        <script src="assets/js/swfobject.js"></script>
+        <script src="assets/js/src/combine.php"></script>
+
+
+        <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-25949597-12']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+
+        </script>
+    </body>
+</html>
