@@ -11,26 +11,27 @@
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/ui-lightness/jquery-ui-1.9.1.custom.css">
+        <link rel="stylesheet" href="http://platform.n0tice.com/mapmaker/assets/css/style.css">
+        <link rel="stylesheet" href="http://platform.n0tice.com/mapmaker/assets/css/ui-lightness/jquery-ui-1.9.1.custom.css">
 
         <script>
             //CONFIG VARIABLES
-            var embedUrl = 'http://platform.n0tice.com/embed.html';
+            var embedUrl = 'http://platform.n0tice.com/mapmaker/embed.html';
         </script>
     </head>
     <body>
+            <img src="maptastica-logo.png" alt="maptastica - custom crowdmaps powered by n0tice" width="220" align="left">
 
-        <div id="hashgordon-header">
-            <img src="maptastica-logo.png" alt="maptastica - custom crowdmaps powered by n0tice">
-        </div>
+<p align="right">Learn about Maptastica at <a href="http://n0tice.org">n0tice.org</a></p>
+            
+ <div class="wrapper blue">
 
-        <div class="wrapper blue">
 
             <header id="site-header" class="wrapper600">
-                <h1 class="ttl">Create your embeddable map</h1>
-                <p class="sub-ttl">And use our simple tool to customise it.</p>
-                <p class="hide-on-open">Before you start, setup a n0ticeboard at <a href="http://n0tice.com/" target="_blank">n0tice</a>. Then enter your n0ticeboard URL <br/>below to create your map. You can then customise and embed it.</p>
+
+                <h3 class="ttl">Create your embeddable map</h3>
+                <p class="sub-ttl">Use our simple wizard to customise it</p>
+                <p class="hide-on-open">Before you start, setup a noticeboard at <a href="http://n0tice.com/" target="_blank">n0tice</a>. Then enter your noticeboard URL <br/>below to create your map. You can then customise and embed it.</p>
 
                 <div id="noticeboard-gate" class="gray-out">
                     <!-- <input type="text" class="tb" id="noticeboard-url" value="gdngig.n0tice.com" /> -->
@@ -67,7 +68,7 @@
                             <h2 id="map-title" class="ttl"><a href="" target="_blank">&nbsp;</a></h2>
                             <p id="map-instructions"></p>
                         </aside>
-                        <div id="map-logo"><a href="" target="_blank"><img src="assets/img/trans.gif" alt=""></a></div>
+                        <div id="map-logo"><a href="" target="_blank"><img src="http://platform.n0tice.com/mapmaker/assets/img/trans.gif" alt=""></a></div>
                     </div>
                 </div>
 
@@ -131,7 +132,7 @@
                         &nbsp;
                     </div>
                 <!--<![endif]-->
-                <img src="assets/img/demo-pin.png" width="31" height="48" id="demo-pin" alt="">
+                <img src="http://platform.n0tice.com/mapmaker/assets/img/demo-pin.png" width="31" height="48" id="demo-pin" alt="">
             </div>
 
             <div class="wrapper600 hidden2" id="editable-widgets">
@@ -195,7 +196,7 @@
                 </ul>
 
                 <a id="powered-by-notice" href="http://about.n0tice.com/" target="_blank">
-                    <img src="assets/img/poweredby-n0tice.gif" alt="powered by notice">
+                    <img src="http://platform.n0tice.com/mapmaker/assets/img/poweredby-n0tice.gif" alt="powered by notice">
                 </a>
 
                 <a id="re-embed" style="display:none;" href="#">&nbsp;</a>
@@ -221,9 +222,9 @@
                         <ul>
                             <li>&mdash; Editing the title and description</li>
                             <li>&mdash; Adding a logo</li>
-                            <li>&mdash; Using widgets</li>
-                            <li>&mdash; Increasing the number of pins</li>
                             <li>&mdash; Setting a default location</li>
+                            <li>&mdash; Including Latest and Popular widgets</li>
+                            <li>&mdash; Changing the color scheme</li>
                         </ul>
                     </div>
                     <div class="clear-both">&nbsp;</div>
@@ -232,30 +233,22 @@
         </div>
 
 
-
-        <div id="no-js-warning">
-            <h1 id="logo" class="hide-text">n0tice active map</h1>
-            <div class="clear-both">&nbsp;</div>
-            <h2 class="ttl">n0tice map Requires Javascript</h2>    
-            <p>You are viewing this notive because it appears you have JavaScript disabled. n0tice map creator requires javascript to work. If you wish to use the application you must enable Javascript in your browser of upgrade to a browser that supports Javascript.</p>
-        </div>
-
         <script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?sensor=false"></script>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="assets/js/jquery-1.8.2.js"><\/script>')</script>
-        <script src="assets/js/jquery-ui-1.9.1.custom.min.js"></script>
-        <script src="assets/js/plugins.js"></script>
-        <script src="assets/js/jquery.zclip.min.js"></script>
-        <script src="assets/js/jquery.backgroundSize.js"></script>
-        <script src="assets/js/swfobject.js"></script>
-        <script src="assets/js/combine.js"></script>
+        <script>window.jQuery || document.write('<script src="http://platform.n0tice.com/mapmaker/assets/js/jquery-1.8.2.js"><\/script>')</script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/plugins.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/jquery.zclip.min.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/jquery.backgroundSize.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/swfobject.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/combine.js"></script>
 
 
         <script type="text/javascript">
 
               var _gaq = _gaq || [];
-              _gaq.push(['_setAccount', 'UA-25949597-12']);
+              _gaq.push(['_setAccount', 'UA-25949597-13']);
               _gaq.push(['_trackPageview']);
 
               (function() {
