@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+        <meta charset="utf-8">
+        <title>maptastica crowdmaps - powered by n0tice</title>
+       
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link rel="stylesheet" href="http://platform.n0tice.com/mapmaker/assets/css/style.css">
+        <link rel="stylesheet" href="http://platform.n0tice.com/mapmaker/assets/css/ui-lightness/jquery-ui-1.9.1.custom.css">
+
+        <script>
+            //CONFIG VARIABLES
+            var embedUrl = 'http://platform.n0tice.com/mapmaker/embed.html';
+        </script>
+    </head>
+    <body>
+            <img src="maptastica-logo-220x128.gif" alt="maptastica - custom crowdmaps powered by n0tice" width="220" align="left">
+
+<p align="right"><a href="http://n0tice.org/2013/04/29/how-to-make-a-map-with-maptastica/">How to make a map&nbsp;<img src="http://n0ticeorg-static.s3.amazonaws.com/wp-content/uploads/2012/05/glyphicons_023_cogwheels.png" >&nbsp;</a></p>
+            
+ <div class="wrapper blue">
+
+
+            <header id="site-header" class="wrapper600">
+
+                <h3 class="ttl">Create your embeddable map</h3>
+                <p class="sub-ttl">Use our simple wizard to customise it</p>
+                <p class="hide-on-open">Before you start, setup a noticeboard at <a href="http://n0tice.com/" target="_blank">n0tice</a>. Then enter your noticeboard URL <br/>below to create your map. You can then customise and embed it.</p>
+
+                <div id="noticeboard-gate" class="gray-out">
+                    <!-- <input type="text" class="tb" id="noticeboard-url" value="gdngig.n0tice.com" /> -->
+                    <input type="text" class="tb" id="noticeboard-url" value="Enter your n0ticeboard URL" />
+                    <a href="#" id="noticeboard-url-btn" class="btn large">Create map</a>
+                </div>
+            </header>
+
+            <header id="map-header">
+
+                <div class="hidden3 option-panel app-panel" id="header-option-panel">
+                    <span class="tool-tip-btn" data-desc="Turn on header.">[?]</span>
+                    <label class="option-ttl"><input type="checkbox" id="show-header"> Show header</label>
+                </div>
+
+                <div class="hidden2" id="editable-header">
+                    <div class="inner-fade-cont faded-out">
+
+                        <div id="edit-map-title-cont">
+                            <input id="edit-map-title" type="text" maxlength="32" class="tb" value="Add a title and hit enter">
+                        </div>
+
+                        <div id="edit-map-hash-cont">
+                            <textarea id="edit-map-hash" type="text" class="tb">Write a description of your map</textarea>
+                        </div>
+
+                        <div id="edit-map-logo-cont">
+                            <a href="#" id="remove-image">X</a>
+                            <label><input id="edit-map-logo" type="checkbox">Add image</label>
+                            <input type="text" class="tb img-link-tb" value="Paste your URL and hit enter" id="img-url">
+                        </div>
+
+                        <aside id="explanation">
+                            <h2 id="map-title" class="ttl"><a href="" target="_blank">&nbsp;</a></h2>
+                            <p id="map-instructions"></p>
+                        </aside>
+                        <div id="map-logo"><a href="" target="_blank"><img src="http://platform.n0tice.com/mapmaker/assets/img/trans.gif" alt=""></a></div>
+                    </div>
+                </div>
+
+                <nav class="hidden2" id="map-function">
+                    <ul id="filter-list">
+                        <li><a href="#" id="find-me">Find my location</a>&nbsp;</li>
+                        <!-- <li>
+                            <a href="#" id="guardian-tips" data-marker-author="topoftheshops">Guardian tips</a>
+                        </li> -->
+                        <li id="search-cont-li">
+                            <form id="search-form" action="./index.html">
+                                <input type="text" id="search-box" value="Search keywords or location" />
+                                <a href="#" class="search-btn hide-text" id="search-map">Go</a>
+                            </form>
+                        </li>
+                        <li class="end"><a href="#" id="reset-map">Reset</a></li>
+                    </ul>
+                    <div id="date-picker"></div>
+                </nav>
+            </header>
+            
+            <div class="map-cont section">
+
+                <div class="hidden3 option-panel app-panel" id="global-option-panel">
+                    <span class="tool-tip-btn" data-desc="Pick a colour scheme for your map.">[?]</span>
+                    <p class="option-ttl">Colour</p>
+
+                    <label><input type="radio" name="color-scheme" class="color-scheme" value="blue" checked id="color-1"> Blue</label>
+                    <br />
+                    <label><input type="radio" name="color-scheme" class="color-scheme" value="red" id="color-2"> Red</label>
+                    <br />
+                    <label><input type="radio" name="color-scheme" class="color-scheme" value="yellow" id="color-3"> Yellow</label>
+                </div>
+
+                <div class="hidden3 option-panel app-panel" id="map-option-panel-1">
+                    <span class="tool-tip-btn" data-desc="Zoom in on the area you want to be your default map view. Press 'Fix location' to fix it.">[?]</span>
+
+                    <p class="option-ttl">Set map view</p>
+                    <div>
+                        <a href="#" id="map-loc-switch">Fix location</a> <span class="hidden" id="map-loc-divi">|</span> <a href="#" class="hidden" id="map-loc-clear">Reset</a>
+                        <br />
+                        <span id="map-loc" data-lat-lng=""></span> 
+                    </div>
+                </div>
+
+                <div class="hidden3 option-panel app-panel" id="map-option-panel-2">
+                    <span class="tool-tip-btn" data-desc="Only show posts that includes these specific words on the map.">[?]</span>
+
+                    <label class="option-ttl"><input type="checkbox" id="map-tags-switch"> Filter posts</label>
+                    <textarea id="tag-filter-ta">Add word(s) and hit enter</textarea>
+                
+                </div>
+
+                <!--[if IE 7]>
+                    <div id="map">
+                        &nbsp;
+                    </div>
+                <![endif]-->
+                <!--[if gt IE 7]><!--> 
+                    <div id="map">
+                        &nbsp;
+                    </div>
+                <!--<![endif]-->
+                <img src="http://platform.n0tice.com/mapmaker/assets/img/demo-pin.png" width="31" height="48" id="demo-pin" alt="">
+            </div>
+
+            <div class="wrapper600 hidden2" id="editable-widgets">
+                
+                <div class="hidden3 option-panel app-panel" id="widget-option-panel">
+                    <span class="tool-tip-btn" data-desc="Show the ‘Most popular’ and ‘Latest posts’ by enabling these widgets.">[?]</span>
+                    <label class="option-ttl"><input type="checkbox" id="show-widgets"> Turn on widgets</label>
+                </div>
+
+                <div class="half-size-div faded-out" id="most-popular-box">
+                    <h2 id="most-popular-gig-title">Most popular</h2>
+
+                    <div class="hs-l-col">
+                        <a id="ppopular-gig-report-image" href="#" class="open-single" data-marker-id="">&nbsp;</a>
+                    </div>
+                    <div class="hs-r-col">
+                        <p class="venue-ttl wrap" id="popular-gig-report-content"></p>
+                    </div>
+
+                    <div class="clear-both">&nbsp;</div>
+
+                    <div>
+                        <p class="meta-loc-icon">
+                            <span id="popular-gig-report-location"></span><br/><span id="popular-gig-report-date"></span>
+                        </p>
+                        <p class="meta" id="popular-gig-report-num-reviews">
+                            <span id="popular-gig-report-num">0</span> Reports
+                            <a id="popular-gig-view-all-reviews-link" href="#" class="open-list" data-marker-id="">View all</a>
+                        </p>
+                    </div>
+
+                    <div class="clear-both">&nbsp;</div>
+
+                </div>
+
+                <div class="half-size-div faded-out end" id="featured-reporter-box">
+                    <h2>Latest posts</h2>
+                    <ul class="profile-latest-revs" id="featured-reporter-latest-images"></ul>
+                </div>
+
+                <div class="clear-both">&nbsp;</div>
+            </div>
+
+            <footer id="map-footer" class="">
+                <ul class="footer-list hidden3" id="editable-footer">
+                    <li class="edit-social-link">
+                        <a href="" id="foot-tw-icon" class="hide-text" target="_blank">twitter</a>
+                        <input type="checkbox" class="toggle-social-link" id="edit-foot-tw">
+                        <input type="text" class="tb social-link-tb" value="add a url and hit enter" id="foot-tw-url">
+                    </li>
+                    <li class="edit-social-link">
+                        <a href="" id="foot-fb-icon" class="hide-text" target="_blank">facebook</a>
+                        <input type="checkbox" class="toggle-social-link" id="edit-foot-fb">
+                        <input type="text" class="tb social-link-tb" value="add a url and hit enter" id="foot-fb-url">
+                    </li>
+                    <li class="edit-social-link">
+                        <a href="" id="foot-gp-icon" class="hide-text" target="_blank">google plus</a>
+                        <input type="checkbox" class="toggle-social-link" id="edit-foot-gp">
+                        <input type="text" class="tb social-link-tb" value="add a url and hit enter" id="foot-gp-url">
+                    </li>
+                </ul>
+
+                <a id="powered-by-notice" href="http://about.n0tice.com/" target="_blank">
+                    <img src="http://platform.n0tice.com/mapmaker/assets/img/poweredby-n0tice.gif" alt="powered by notice">
+                </a>
+
+                <a id="re-embed" style="display:none;" href="#">&nbsp;</a>
+
+                <div class="clear-both">&nbsp;</div>
+            </footer> 
+
+            <div id="map-footer-spacer">&nbsp;</div>
+
+            <div id="embed-box" class="modal"><a href="#" class="hide-text" id="error-box-close">X</a><p class="error-ttl">Embed</p><textarea id="embed_code" readonly="readonly"></textarea><p class="meta">Add this code to your blog</p></div>
+
+            <footer id="site-footer">
+                <div class="footer-controls app-panel no-show wrapper600">
+                    <a href="#" id="change-footer-state" class="hide-text">expand</a>
+                    <div id="get-embed-col" class="col-300">
+                        <a href="#" id="get-embed-btn" class="btn inline-block">Get code</a>
+                        <p>Embed your map</p>
+                        <textarea id="footer-embed-code" readonly="readonly"></textarea>
+                    </div>
+                    <div id="edit-embed-col" class="col-300">
+                        <a href="#" id="toggle-edit-mode" data-edit="off" class="btn inline-block">Edit</a>
+                        <p>Customise your map by:</p>
+                        <ul>
+                            <li>&mdash; Editing the title and description</li>
+                            <li>&mdash; Adding a logo</li>
+                            <li>&mdash; Setting a default location</li>
+                            <li>&mdash; Including Latest and Popular widgets</li>
+                            <li>&mdash; Changing the color scheme</li>
+                        </ul>
+                    </div>
+                    <div class="clear-both">&nbsp;</div>
+                </div>    
+            </footer>
+        </div>
+
+
+        <script type="text/javascript" src="https://maps-api-ssl.google.com/maps/api/js?sensor=false"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="http://platform.n0tice.com/mapmaker/assets/js/jquery-1.8.2.js"><\/script>')</script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/jquery-ui-1.9.1.custom.min.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/plugins.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/jquery.zclip.min.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/jquery.backgroundSize.js"></script>
+        <script src="http://platform.n0tice.com/mapmaker/assets/js/swfobject.js"></script>
+        <script src="../assets/js/custom/bigbarn.js"></script>
+
+
+        <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-25949597-13']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+
+        </script>
+    </body>
+</html>
