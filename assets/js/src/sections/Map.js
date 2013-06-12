@@ -606,55 +606,57 @@ function removePlaces(){
 
 function addPlaces(ven){
     for(i in ven){
-      var placeMarker;
-      
-      //choose marker icon 
-      var markerType = (ven[i].category == undefined)? '' : '-'+ven[i].category;
-      var markerSize = (isEmbed550)? new google.maps.Size(16, 21) :  google.maps.Size(16, 21);
-      var markerAnchor = (isEmbed550)? new google.maps.Size(8, 21) :  google.maps.Point(8, 21);
-      var ico = new google.maps.MarkerImage(
-        assetBase+'place-marker'+markerType+'.png',
-        markerSize,
-        new google.maps.Point(0, 0),
-        markerAnchor
-      );
-
-      //FIX markerImage not working on embed map
-      if(isEmbed550)
-       ico = assetBase+'place-marker'+markerType+'.png';
-
-      var placeId = 'place-'+i;
-      placeMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(ven[i]['geo:lat'], ven[i]['geo:long']),
-          map: map,
-          icon: ico,
-          title: placeId,
-          visible: true
-      }); 
+      if(ven[i]['geo:lat'] !== 0) {
         
-      placesOnMap.push({id:placeId, mrkrObj:placeMarker, placeData:ven[i] });
+        var placeMarker;
+      
+        //choose marker icon 
+        var markerType = (ven[i].category == undefined)? '' : '-'+ven[i].category;
+        var markerSize = (isEmbed550)? new google.maps.Size(16, 21) :  google.maps.Size(16, 21);
+        var markerAnchor = (isEmbed550)? new google.maps.Size(8, 21) :  google.maps.Point(8, 21);
+        var ico = new google.maps.MarkerImage(
+          assetBase+'place-marker'+markerType+'.png',
+          markerSize,
+          new google.maps.Point(0, 0),
+          markerAnchor
+        );
 
-      google.maps.event.addListener(placeMarker, 'click', function() {
-        if(ib != undefined) ib.close();
-        var that = this;
-        var places = placesOnMap;
-        var placeObj = $.grep(places, function(n) { 
-          return n.id == that.title; 
-        });
-        var placeItem = placeObj[0].placeData;
+        //FIX markerImage not working on embed map
+        if(isEmbed550)
+          ico = assetBase+'place-marker'+markerType+'.png';
 
-        ibOptions.pixelOffset = (isEmbed550)? new google.maps.Size(-183, -110) : new google.maps.Size(-263, -140);
-        ibOptions.boxStyle = (isEmbed550)? {background: '#fff',width: '367px',height: '58px',padding: '0px'} : {background: '#fff',width: '527px',height: '78px',padding: '0px'};
-        ibOptions.content = placeDetail
-        .replace('{TITLE}',placeItem.title)
-        .replace('{URL}',placeItem.link)
-        .replace('{BASE}',assetBase);
+        var placeId = 'place-'+i;
+        placeMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(ven[i]['geo:lat'], ven[i]['geo:long']),
+            map: map,
+            icon: ico,
+            title: placeId,
+            visible: true
+        }); 
+        
+        placesOnMap.push({id:placeId, mrkrObj:placeMarker, placeData:ven[i] });
 
-        ib = new InfoBox(ibOptions);   
-        ib.open(map, this);
+        google.maps.event.addListener(placeMarker, 'click', function() {
+          if(ib != undefined) ib.close();
+          var that = this;
+          var places = placesOnMap;
+          var placeObj = $.grep(places, function(n) { 
+            return n.id == that.title; 
+          });
+          var placeItem = placeObj[0].placeData;
 
-      }); 
+          ibOptions.pixelOffset = (isEmbed550)? new google.maps.Size(-183, -110) : new google.maps.Size(-263, -140);
+          ibOptions.boxStyle = (isEmbed550)? {background: '#fff',width: '367px',height: '58px',padding: '0px'} : {background: '#fff',width: '527px',height: '78px',padding: '0px'};
+          ibOptions.content = placeDetail
+          .replace('{TITLE}',placeItem.title)
+          .replace('{URL}',placeItem.link)
+          .replace('{BASE}',assetBase);
 
+          ib = new InfoBox(ibOptions);   
+          ib.open(map, this);
+
+        }); 
+      }
     }
 }
 
