@@ -1,7 +1,7 @@
 /*START EASY CLIENT GLOBAL VARS*/
 
 var maxPinsOnMap = 100,
-n0ticeboardID = 'localshopping',
+n0ticeboardID = 'gdngig',
 currentCountry = 'UK',
 testingMode = false,
 featuredAuthorGoogleSpreadsheetID = "0AoIvs4JUqGrAdEIxdnNDV1FjOTlTVXlJZGZ1dmJWQWc",
