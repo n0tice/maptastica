@@ -4,7 +4,7 @@ function openEmbedBox(){
 	var eBox = embedBox
 	.replace('{TITLE}','Embed')
 	.replace('{CODE}',eCode)
-	.replace('{MESSAGE}','Add this code to your blog to embed the map.');
+	.replace('{MESSAGE}','Add this code to your blog to embed the map. <a href="'+embedUrl+'">Link</a>');
 
 	$("div.wrapper").append( eBox );
 	$("#error-box-close").click( function( e ){

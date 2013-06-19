@@ -670,7 +670,7 @@ function loadLatestReviews() {
             query = '&q=' + encodeURIComponent(adminFilterTerm);
         }
         $.ajax({
-            url: "http://n0ticeapis.com/2/search?type=report&noticeboard=" + n0ticeboardID + query + "&pageSize=" + resultsPerCall + "&page=" + reviewsPage + getAdministratorsString() + "&user=" + userPosts + "&maximumFlags=" + maximumFlags + getFilterTagsString(),
+            url: "http://n0ticeapis.com/2/search?noticeboard=" + n0ticeboardID + query + "&pageSize=" + resultsPerCall + "&page=" + reviewsPage + getAdministratorsString() + "&user=" + userPosts + "&maximumFlags=" + maximumFlags + getFilterTagsString(),
             dataType: 'jsonp',
             success: function (data) {
                 pinsLeftToadd = pinsLeftToadd - resultsPerCall;

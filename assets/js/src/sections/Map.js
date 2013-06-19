@@ -480,6 +480,7 @@ function removeMarkers(){
 
 function addMarkers(ven,keepBounds){
     for(i in ven){
+      if(ven[i].place.latitude != 0) {
       var marker;
       
       //choose marker icon 
@@ -540,7 +541,7 @@ function addMarkers(ven,keepBounds){
         },300);
 
       }); 
-
+	}
     }
     
     //set clusters----------------------------
@@ -606,7 +607,7 @@ function removePlaces(){
 
 function addPlaces(ven){
     for(i in ven){
-      if(ven[i]['geo:lat'] !== 0) {
+      if(ven[i]['geo:lat'] != 0) {
         
         var placeMarker;
       
